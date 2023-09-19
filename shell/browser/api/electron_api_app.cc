@@ -1491,7 +1491,9 @@ bool App::IsRunningUnderARM64Translation() const {
     return false;
   }
 
-  return nativeMachine == IMAGE_FILE_MACHINE_ARM64;
+  return nativeMachine == IMAGE_FILE_MACHINE_ARM64 &&
+         (processMachine == IMAGE_FILE_MACHINE_I386 ||
+          processMachine == IMAGE_FILE_MACHINE_AMD64);
 }
 #endif
 
